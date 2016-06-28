@@ -43,8 +43,6 @@ namespace CustomErrorPages
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
-            //services.AddApplicationInsightsTelemetry(Configuration);
-
             services.AddMvc();
         }
 
@@ -54,21 +52,7 @@ namespace CustomErrorPages
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
-            //app.UseApplicationInsightsRequestTelemetry();
-
             app.UseCustomErrorPages();
-
-            //if (env.IsDevelopment())
-            //{
-            //    app.UseDeveloperExceptionPage();
-            //    app.UseBrowserLink();
-            //}
-            //else
-            //{
-            //    app.UseExceptionHandler("/Home/Error");
-            //}
-
-            //app.UseApplicationInsightsExceptionTelemetry();
 
             app.UseStaticFiles();
 
